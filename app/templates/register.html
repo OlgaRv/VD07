@@ -6,7 +6,7 @@ Register
 
 {% block content %}
 <h1>Регистрация</h1>
-<form action="{{ url_for('register') }}" method="POST">
+<form method="POST" action="{{ url_for('register') }}" autocomplete="off" id="registerForm">
     {{ form.hidden_tag() }}
         <div class="form-group">
             {{ form.username.label }}
@@ -28,4 +28,9 @@ Register
             {{ form.submit }}
         </div>
 </form>
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("registerForm").reset();
+        });
+    </script>
 {% endblock %}

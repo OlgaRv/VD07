@@ -6,7 +6,7 @@ Login
 
 {% block content %}
 <h1>Вход</h1>
-<form action="{{ url_for('login') }}" method="POST">
+<form method="POST" action="{{ url_for('login') }}" autocomplete="off" id="loginForm">
     {{ form.hidden_tag() }}
         <div class="form-group">
             {{ form.email.label }}
@@ -24,4 +24,10 @@ Login
             {{ form.submit }}
         </div>
 </form>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("loginForm").reset();
+    });
+</script>
 {% endblock %}
